@@ -1,3 +1,4 @@
+package quickDemo;
 
 public class Person {
     private String name;

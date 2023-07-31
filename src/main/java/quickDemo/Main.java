@@ -1,3 +1,5 @@
+package quickDemo;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class Main {
         List<Person> reverseSorted = li.stream().sorted(Comparator.comparing(Person::getAge).reversed()).collect(Collectors.toList());
         reverseSorted.forEach(System.out::println);
 
-       // All match
+        // All match
         boolean allMatch = li.stream()
                                     .allMatch(p -> p.getAge() > 18);
         System.out.println(allMatch);
@@ -53,7 +55,7 @@ public class Main {
         System.out.println(min.get());
 
         // Avg
-        List numbers = List.of(1, 2, 3, 4, 5);
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
         double avg = numbers.stream().mapToDouble(n -> Double.parseDouble(n.toString())).average().orElse(0.0);
         System.out.println(avg);
 
@@ -75,5 +77,4 @@ public class Main {
                         new Person("koko", 17, Gender.MALE),
                         new Person("Dadu", 25, Gender.FEMALE));
     }
-
 }
