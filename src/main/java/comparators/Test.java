@@ -51,6 +51,25 @@ public class Test {
         List<Person> otherPeople = getPeople();
         Collections.sort(otherPeople, comparator);
         System.out.println(otherPeople);
+
+        System.out.println("==================");
+
+        // instead of declaring my own comparator we can use the Compatator class
+        List<Person> someOtherPeople = getPeople();
+        Collections.sort(someOtherPeople, Comparator.comparing(Person::getAge));
+        System.out.println(otherPeople);
+
+        // others comparaison trategies
+        List<Person> dataSet = getPeople();
+        // multiple conditions
+        Collections.sort(dataSet, Comparator.comparing(Person::getAge).thenComparing(Person::getName)); 
+        System.out.println(dataSet);
+
+        // others comparaison trategies
+        List<Person> otherDataSet = getPeople();
+        // multiple conditions
+        Collections.sort(otherDataSet, Comparator.comparing(Person::getAge).reversed()); 
+        System.out.println(otherDataSet);
     }
 
     static List<Player> getPlayers() {
@@ -61,8 +80,9 @@ public class Test {
     }
 
     static List<Person> getPeople() {
-        return Arrays.asList(new Person("Amama", 27, Gender.FEMALE),
+        return Arrays.asList(new Person("amama", 27, Gender.FEMALE),
                         new Person("koko", 17, Gender.MALE),
-                        new Person("Dadu", 25, Gender.FEMALE));
+                        new Person("kiko", 17, Gender.MALE),
+                        new Person("dadu", 25, Gender.FEMALE));
     }
 }
